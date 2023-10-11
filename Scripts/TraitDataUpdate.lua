@@ -1,3 +1,8 @@
+local DepthDamageMultiplier = 0.0
+local DuplicateMultiplier = -0.60
+local DuplicateStrongMultiplier = -0.40
+local DuplicateVeryStrongMultiplier = -0.20
+
 TraitDataUpdate = 
 {
 	AthenaSecondaryTrait =
@@ -750,7 +755,7 @@ TraitDataUpdate =
 			{
 				{
 					Key = "ValidWeaponMultiplier",
-					ExtractAs = "DisplayDelta1",
+					ExtractAs = "TooltipDamage",
 					Format = "PercentDelta",
 				},
 			}
@@ -1234,7 +1239,7 @@ TraitDataUpdate =
 			{
 				{
 					Key = "ValidWeaponMultiplier",
-					ExtractAs = "DisplayDelta1",
+					ExtractAs = "TooltipBonusDamage",
 					Format = "PercentDelta",
 				},
 			}
@@ -5063,6 +5068,199 @@ TraitDataUpdate =
 				{
 					ExtractAs = "TooltipDuration",
 				}
+			},
+		},
+	},
+	BowLongRangeDamageTrait =
+	{
+		InheritFrom = { "WeaponTrait" },
+		Icon = "Weapon_Bow_02",
+		RequiredWeapon = "BowWeapon",
+		-- RequiredFalseTraits = { "BowCloseAttackTrait" },
+		AddOutgoingDamageModifiers =
+		{
+			ValidWeapons = { "BowWeapon", "BowWeaponDash" },
+			ExcludeLinked = true,
+			DistanceThreshold = 500,
+			DistanceMultiplier =
+			{
+				BaseValue = 3.0,
+				SourceIsMultiplier = true,
+			},
+			ExtractValues =
+			{
+				{
+					Key = "DistanceMultiplier",
+					ExtractAs = "TooltipDamageBonus",
+					Format = "PercentDelta",
+				},
+			}
+		},
+		PropertyChanges =
+		{
+			{
+				WeaponNames = { "BowWeapon", "BowWeaponDash" },
+				WeaponProperty = "TargetReticleAnimation",
+				ChangeValue = "AimLineRangeThreshold",
+				ExcludeLinked = true,
+			},
+			{
+				WeaponNames = { "BowWeapon", "BowWeaponDash" },
+				WeaponProperty = "TargetReticleOffset",
+				ChangeValue = 500,
+				ExcludeLinked = true,
+			},
+			{
+				WeaponNames = { "BowWeapon", "BowWeaponDash" },
+				WeaponProperty = "RotateTargetReticle",
+				ChangeValue = true,
+				ExcludeLinked = true,
+			},
+		},
+	},
+	BowSlowChargeDamageTrait =
+	{
+		InheritFrom = { "WeaponTrait" },
+		Icon = "Weapon_Bow_03",
+		RequiredWeapon = "BowWeapon",
+		RequiredFalseTraits = { "BowDashFanTrait" },
+		AddOutgoingDamageModifiers =
+		{
+			ValidWeaponMultiplier =
+			{
+				BaseValue = 3,
+				SourceIsMultiplier = true,
+				IdenticalMultiplier =
+				{
+					Value = DuplicateMultiplier,
+				},
+			},
+			ValidWeapons = { "BowWeapon", "BowWeaponDash" },
+			ExtractValues =
+			{
+				{
+					Key = "ValidWeaponMultiplier",
+					ExtractAs = "TooltipDamageBonus",
+					Format = "PercentDelta",
+				},
+			}
+		},
+		PropertyChanges =
+		{
+			{
+				WeaponNames = { "BowWeapon", "BowWeaponDash" },
+				WeaponProperty = "ChargeTime",
+				ChangeValue = 1.5,
+				ChangeType = "Multiply",
+				ExcludeLinked = true,
+			},
+			{
+				WeaponNames = { "BowWeapon", "BowWeaponDash" },
+				WeaponProperty = "MinChargeToFire",
+				ChangeValue = 0.35,
+				ChangeType = "Multiply",
+				ExcludeLinked = true,
+			},
+			{
+				WeaponNames = { "BowWeapon", "BowWeaponDash" },
+                ProjectileProperty = "DamageRadius",
+                ChangeValue = 350,
+                ChangeType = "Absolute",
+                ExcludeLinked = true,
+            },
+			{
+				TraitName = "BowTapFireTrait",
+				WeaponNames = { "BowWeapon", "BowWeaponDash" },
+				WeaponProperty = "ReloadTime",
+				ChangeValue = 1.5,
+				ChangeType = "Multiply",
+				ExcludeLinked = true,
+            },
+			{
+				WeaponNames = { "BowWeapon", "BowWeaponDash" },
+				ProjectileProperty = "DamageRadiusScaleX",
+				ChangeValue = 0.9,
+				ChangeType = "Absolute",
+				ExcludeLinked = true,
+			},
+			{
+				WeaponNames = { "BowWeapon", "BowWeaponDash" },
+				ProjectileProperty = "DamageRadiusScaleY",
+				ChangeValue = 0.5,
+				ChangeType = "Absolute",
+				ExcludeLinked = true,
+			},
+			{
+				WeaponNames = { "BowWeapon", "BowWeaponDash" },
+				ProjectileProperty = "DetonateGraphic",
+				ChangeValue = "MineExplosionFadeDecalGunTrait",
+				ChangeType = "Absolute",
+				ExcludeLinked = true,
+			},
+			{
+				WeaponNames = { "BowWeapon", "BowWeaponDash" },
+                ProjectileProperty = "DetonateSound",
+                ChangeValue = "/SFX/PlayerHammerExplosions",
+                ChangeType = "Absolute",
+                ExcludeLinked = true,
+            },
+		},
+	},
+	BowDoubleShotTrait =
+	{
+		InheritFrom = { "WeaponTrait" },
+		Icon = "Weapon_Bow_08",
+		RequiredWeapon = "BowWeapon",
+		RequiredFalseTraits = { "BowTripleShotTrait", "BowDashFanTrait" },
+		PropertyChanges =
+		{
+			{
+				WeaponNames = { "BowWeapon", "BowWeaponDash" },
+				WeaponProperty = "NumProjectiles",
+				ChangeValue = 1,
+				ChangeType = "Add",
+				ExcludeLinked = true,
+			},
+
+			{
+				WeaponNames = { "BowWeapon", "BowWeaponDash" },
+				WeaponProperty = "ProjectileInterval",
+				ChangeValue = 0,
+				ChangeType = "Absolute",
+				ExcludeLinked = true,
+			},
+
+			{
+				WeaponNames = { "BowWeapon", "BowWeaponDash" },
+				WeaponProperty = "ProjectileSpacing",
+				ChangeValue = 12,
+				ChangeType = "Absolute",
+				ExcludeLinked = true,
+			},
+
+			{
+				WeaponNames = { "BowWeapon", "BowWeaponDash" },
+				WeaponProperty = "ProjectileOffsetStart",
+				ChangeValue = "CENTER",
+				ChangeType = "Absolute",
+				ExcludeLinked = true,
+			},
+
+			{
+				WeaponNames = { "BowWeapon", "BowWeaponDash" },
+				ProjectileProperty = "Range",
+				ChangeValue = 0.65,
+				ChangeType = "Multiply",
+				ExcludeLinked = true,
+			},
+
+			{
+				TraitName = "BowBondTrait",
+				WeaponNames = { "BowWeapon", "BowWeaponDash" },
+				WeaponProperty = "ProjectileSpacing",
+				ChangeValue = 5,
+				ChangeType = "Multiply",
+				ExcludeLinked = true,
 			},
 		},
 	},
