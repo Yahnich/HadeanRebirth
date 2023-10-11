@@ -1,0 +1,95 @@
+{
+  lang = "en"
+  Texts = ["_append"
+    {
+      Id = "SwordHeavySecondStrikeTrait"
+      DisplayName = "World Splitter"
+      Description = "The base damage of your {$Keywords.Chop} is increased by {#AltUpgradeFormat}{$TooltipData.TooltipDamage} {#PreviousFormat}, but you can no longer {$Keywords.Slash} or {$Keywords.Thrust}."
+    }
+    {
+      Id = "SwordTwoComboTrait"
+      DisplayName = "Flurry Slash"
+      Description = "Hold {$Keywords.Attack} to strike rapidly, and deals {#AltUpgradeFormat}{$TooltipData.TooltipDamage} {#PreviousFormat} more base damage."
+    }
+    {
+      Id = "SwordDoubleDashAttackTrait"
+      DisplayName = "Double Edge"
+      Description = "Your {$Keywords.Thrust} hits {#AltUpgradeFormat}{$TooltipData.TooltipBonusHits} {#PreviousFormat} more time and deals {#AltUpgradeFormat}{$TooltipData.TooltipDamageIncrease:P} {#PreviousFormat} damage."
+    }
+    {
+      Id = "SwordCriticalTrait"
+      DisplayName = "Cruel Thrust"
+      Description = "Your {$Keywords.Thrust} deal {#AltUpgradeFormat}{$TooltipData.TooltipDamageIncrease:P} {#PreviousFormat}damage and has a {#AltUpgradeFormat}{$TooltipData.TooltipBonusChance:P} {#PreviousFormat}{$Keywords.Crit} chance."
+    }
+    {
+      Id = "SpearReachAttack"
+      DisplayName = "Extending Pole"
+      Description = "Your {$Keywords.Attack} and {$Keywords.Spin} have more range and deal {#AltUpgradeFormat}{$TooltipData.TooltipDamageBonus:P} {#PreviousFormat}damage to distant foes."
+    }
+    {
+      Id = "SpearSpinChargeLevelTime"
+      DisplayName = "Quick Spin"
+      Description = "Your {$Keywords.Spin} charges up and recovers {#AltUpgradeFormat}{$TooltipData.TooltipSpeed:P} {#PreviousFormat}faster."
+    }
+    {
+      Id = "SpearDashMultiStrike"
+      DisplayName = "Serrated Point"
+      Description = "Your {$Keywords.BlinkStrike} hits {#UpgradeFormat}{$TooltipData.TooltipHits} {#PreviousFormat} more time(s), and your {$Keywords.Dash} has {#UpgradeFormat}{$TooltipData.TooltipRangeBonus}% {#PreviousFormat}range."
+    }
+    {
+      Id = "SpearAttackPhalanxTrait"
+      DisplayName = "Triple Jab"
+      Description = "Your {$Keywords.Attack} and {$Keywords.BlinkStrike} strikes {#AltUpgradeFormat}3 {#PreviousFormat}times in a spread pattern."
+    }
+    {
+      Id = "ShieldThrowRushTrait"
+      DisplayName = "Dashing Flight"
+      Description = "your {$Keywords.Special} is {#AltUpgradeFormat}{$TooltipData.TooltipSpeedIncrease:P} {#PreviousFormat}faster and your {$Keywords.Special} deals {#AltUpgradeFormat}{$TooltipData.TooltipDamageIncrease:P} {#PreviousFormat}damage after you {$Keywords.Dash}."
+    }
+    {
+      Id = "FistHeavyAttackTrait"
+      DisplayName = "Heavy Knuckle"
+      Description = "Your {$Keywords.Attack} becomes a {#BoldFormatGraft}3{#PreviousFormat}-hit sequence; base damage increased by {#AltUpgradeFormat}{$TooltipData.TooltipDamage} {#PreviousFormat}."
+    }
+    {
+      Id = "GunManualReloadTrait"
+      DisplayName = "Aspect of Hestia"
+      Description = "After you {$Keywords.ManualReload}, your next shot is empowered. \n {!Icons.Bullet}{#PropertyFormat}Empowered Shot Base Damage: \Column 380 {#UpgradeFormat}{$TooltipData.TooltipDamage} \n\n {#ItalicFormatDark}Before she was goddess of the hearth, she specialized in another type of fire."
+    }
+    {
+      Id = "GunManualReloadTrait_Delta"
+      InheritFrom = "GunManualReloadTrait"
+      Description = "After you {$Keywords.ManualReload}, your next shot is empowered. \n {!Icons.Bullet}{#PropertyFormat}Empowered Shot Base Damage: \Column 380 {#PreviousFormat}{$TooltipData.DisplayDelta1} \n\n {#ItalicFormatDark}Before she was goddess of the hearth, she specialized in another type of fire."
+    }
+    {
+      Id = "GunManualReloadTrait_Tray"
+      InheritFrom = "GunManualReloadTrait"
+      Description = "After you {$Keywords.ManualReload}, your first shot is empowered. \n {!Icons.Bullet}{#PropertyFormat}Empowered Shot Base Damage: \Column 380 {#UpgradeFormat}{$TooltipData.TooltipDamage}"
+    }
+    {
+      Id = "ExtraChanceReplenish"
+      DisplayName = "Stubborn Defiance"
+      Description = "Restore at least {#TooltipUpgradeFormat}30%{!Icons.Health_Small}{#PreviousFormat} per rank when your Life Total is depleted, {#TooltipBoldFormat}1 {#PreviousFormat}time {#ItalicFormat}per chamber. {#TooltipUpgradeFormat}+10%{#PreviousFormat} per rank."
+    }
+    {
+      Id = "ExtraChanceAlt"
+      InheritFrom = "ExtraChance"
+      DisplayName = "Stubborn Defiance"
+      Description = "Restore at least {#TooltipUpgradeFormat}30%+10%{!Icons.Health_Small}{#PreviousFormat} per rank when your Life Total is depleted, {#TooltipBoldFormat}1 {#PreviousFormat}time {#ItalicFormat}per chamber."
+    }
+    {
+      Id = "Thrust"
+      DisplayName = "Thrust"
+      Description = "Using the Blade, your Dash-Strike and every third {A2} attack is a thrust that knocks foes away."
+    }
+    {
+      Id = "ExtraChanceReplenishMetaUpgrade_ShortTotal"
+      DisplayName = "{$TempTextData.Amount}%{!Icons.Health_Small}"
+      OverwriteLocalization = true
+    }
+    {
+      Id = "ExtraChanceReplenishMetaUpgrade_ShortTotalNoIcon"
+      DisplayName = "{$TempTextData.Amount}%"
+      OverwriteLocalization = true
+    }]
+}

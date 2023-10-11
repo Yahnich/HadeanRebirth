@@ -1,0 +1,27 @@
+{
+  Weapons = ["_append"
+    {
+      Name = "SwordAOEWave"
+      InheritFrom = "1_BaseMagicWeapon"
+      FullyAutomatic = true
+      IgnoreOwnerAttackDisabled = true
+      Type = "GUN"
+      Projectile = "SwordParry"
+      ClipSize = 1
+      ChargeSound = "null"
+      FireSound = "/SFX/HellFireShoot"
+      RootOwnerWhileFiring = true
+      BlockMoveInput = true
+      CancelMovement = true
+      ChargeCancelMovement = true
+      BarrelLength = 85
+      AutoLock = true
+      FireGraphic = "null"
+      FireFx = "CastDust"
+      LockTriggerForCharge = false
+      DisableOwnerForDuration = 0
+      ReloadTime = 0
+      SelfVelocity = 0
+      NumProjectiles = 1
+    }]
+}

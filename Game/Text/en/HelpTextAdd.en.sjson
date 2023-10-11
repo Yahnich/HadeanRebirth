@@ -1,0 +1,14 @@
+{
+  lang = "en"
+  Texts = ["_append"
+    {
+      Id = "SwordAOESecondStrikeTrait"
+      DisplayName = "Quaking Chop"
+      Description = "Your {$Keywords.Chop} triggers the effects of your {$Keywords.Special}."
+    }
+    {
+      Id = "Chop"
+      DisplayName = "Chop"
+      Description = "Using the Blade, the second {A2} attack is an overhead chop {#ItalicFormat}(followed by a thrust){#PreviousFormat}."
+    }]
+}

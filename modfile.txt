@@ -1,0 +1,9 @@
+Top Import "config.lua"
+Import "HadeanRebirth.lua"
+To "Game/Weapons/PlayerWeapons.sjson"
+SJSON "Game/Weapons/PlayerWeaponsAdd.sjson"
+To "Game/Text/en/HelpText.en.sjson"
+SJSON "Game/Text/en/HelpTextUpdate.en.sjson"
+To "Game/Text/en/HelpText.en.sjson"
+SJSON "Game/Text/en/HelpTextAdd.en.sjson"
+Load Priority 300
